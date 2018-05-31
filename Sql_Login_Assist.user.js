@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sql_Login
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      1.0
 // @description  点击登录，新开tab
 // @author       You
 // @match        http://sql.raiyee.cn:1000/home
