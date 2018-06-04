@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         Activity_Url_Assist
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  try to take over the world!
-// @author       You
+// @author       Cong
 // @match        *://test.go.easy-hi.com/*
-// @match        *://app.go.easy-hi.com/*
-// @match        *://appn.go.easy-hi.com/*
+// @match        *://app.easy-hi.com/*
+// @match        *://appn.easy-hi.com/*
 // @require https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js
 // @resource https://github.com/raiyeeeric/RaiyeeTools/raw/master/Activity_Url_Assist/index.css
 // @grant        GM_addStyle
