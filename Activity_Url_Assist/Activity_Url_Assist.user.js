@@ -1,18 +1,21 @@
 // ==UserScript==
 // @name         Activity_Url_Assist
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  try to take over the world!
 // @author       You
 // @match        *://test.go.easy-hi.com/*
 // @match        *://app.go.easy-hi.com/*
 // @match        *://appn.go.easy-hi.com/*
 // @require https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js
-// @grant        none
+// @resource https://github.com/raiyeeeric/RaiyeeTools/raw/master/Activity_Url_Assist/index.css
+// @grant        GM_addStyle
 // ==/UserScript==
 
 (function() {
     'use strict';
+    GM_addStyle("#activity-btn{z-index:100000000;position:fixed;top:0;right:0;min-width:100px;opacity:.5;background-color:#000;overflow:hidden;width:130px;box-sizing:border-box}");
+    GM_addStyle(".activity-line-btn{height:30px;text-align:center;line-height:30px;border:1px solid red;border-radius:5px;color:red;width:120px;margin:5px}");
     $('body').append('<div id="activity-btn"></div>')
     $('#activity-btn').append('<div id="createActivityUrl" class="activity-line-btn">自动生成链接</div>')
     $('#activity-btn').append('<div id="convertUrl" class="activity-line-btn">手动生成链接</div>')
