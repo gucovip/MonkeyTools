@@ -1,0 +1,22 @@
+#activity-btn {
+  z-index: 100000000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  min-width: 100px;
+  opacity: 0.5;
+  background-color: black;
+  overflow: hidden;
+  width: 130px;
+  box-sizing: border-box;
+}
+.activity-line-btn {
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid red;
+  border-radius: 5px;
+  color: red;
+  width: 120px;
+  margin: 5px;
+}
