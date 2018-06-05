@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Activity_Url_Assist
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.3
 // @description  try to take over the world!
 // @author       Cong
 // @match        *://test.go.easy-hi.com/*
@@ -61,6 +61,7 @@
         return RegExp.$2
     }
     $('#convertUrl').click(()=>{
+        let realUrl
         let oldUrl = prompt("请将微信中复制的地址粘贴到这里：")
         oldUrl = oldUrl.replace('visionAutoAuthc','oauth')
         if(oldUrl.indexOf('redirect_uri')>=0){
@@ -72,6 +73,7 @@
         alert(resolveUrl(realUrl))
     })
     $('#decodeUrl').click(()=>{
+        let realUrl
         let oldUrl = prompt("请将带oauth的粘贴到这里：")
         oldUrl = oldUrl.replace('visionAutoAuthc','oauth')
         if(oldUrl.indexOf('redirect_uri')>=0){
