@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DZDPGetMerchant
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  大众点评列表获取详情号码，仅供学习使用
 // @author       You
 // @match        *://**.dianping.com/search/**
@@ -16,11 +16,13 @@
 
 (function() {
     'use strict';
-    const isStart = confirm('是否开始获取数据？')
-    if(!isStart) return
     let localDzdp = localStorage.getItem('dzdp') || ''
     let page = $('.page').find('a.cur')[0] ? $('.page').find('a.cur')[0].innerText: '1'
     if(page === '1') localDzdp = ''
+    if(page === '1'){
+       const isStart = confirm('是否开始获取数据？')
+       if(!isStart) return
+       }
     $('[data-shopid][data-hippo-type="shop"]').each((index,item) => {
         let id = $(item).attr('data-shopid')
         getTel(id)
