@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DZDPGetMerchant
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.3
 // @description  大众点评列表获取详情号码，仅供学习使用
 // @author       You
 // @match        *://**.dianping.com/search/**
