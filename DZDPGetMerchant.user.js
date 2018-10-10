@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DZDPGetMerchant
 // @namespace    http://tampermonkey.net/
-// @version      1.4
+// @version      1.5
 // @description  大众点评列表获取详情号码，仅供学习使用
 // @author       You
 // @match        *://**.dianping.com/search/**
@@ -44,6 +44,7 @@
                 'accept': 'application/atom+xml,application/xml,text/xml',
             },
             onload: function(responsedetails) {
+                console.log(responsedetails.finalUrl)
                 var tel = $(responsedetails.response).find('span[itemprop="tel"]')[0].innerText
                 var shopName = $(responsedetails.response).find('h1.shop-name')[0].innerText
                 var address = $(responsedetails.response).find('.expand-info.address')[0].innerText
