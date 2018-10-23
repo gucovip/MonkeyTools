@@ -11,6 +11,13 @@
 
 (function() {
     'use strict';
-    GM_addStyle(".trello-assist-small{width:200px !important;}")
-    $(".list-wrapper").addClass('trello-assist-small')
+     GM_addStyle(".trello-assist-small{width:200px !important;}")
+     $(".list-wrapper").addClass('trello-assist-small')
+    const timer = setInterval(function() {
+        const isAddClass = $(".list-wrapper").hasClass('trello-assist-small')
+        if(!isAddClass) {
+            GM_addStyle(".trello-assist-small{width:200px !important;}")
+            $(".list-wrapper").addClass('trello-assist-small')
+        }
+    }, 5*1000)
 })();
