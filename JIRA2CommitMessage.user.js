@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JIRA2CommitMessage
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  try to take over the world!
 // @author       You
 // @match        http://jira.carzone365.com/browse/*
@@ -12,7 +12,7 @@
 (function() {
     'use strict';
 
-    $(document).on('dblclick', '.aui-page-header-image', function(){
+    $(document).on('click', '.aui-page-header-image', function(){
         const jiraCode = location.pathname.split('/')[2]
         const jiraTitle = $('#summary-val').text()
         const message = `${jiraCode} ${jiraTitle}`
