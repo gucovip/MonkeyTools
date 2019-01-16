@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         FindJira
 // @namespace    http://tampermonkey.net/
-// @version      1.1
-// @description  try to take over the world!
+// @version      1.2
+// @description  选中jira号，按键盘 w 键即可
 // @author       You
 // @include        https://git.carzone365.com/*
 // @include        https://xcz.yuque.com/*
@@ -41,7 +41,7 @@
     $(document).on('keydown', function(event){
         const selectedJiraCode = window.getSelection().toString();
         if(selectedJiraCode.indexOf('-')<0) return
-        if(event.altKey && event.keyCode==70){
+        if(event.keyCode==87){
             getTitle(selectedJiraCode.trim())
         }
     })
