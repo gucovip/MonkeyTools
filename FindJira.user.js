@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         FindJira
 // @namespace    http://tampermonkey.net/
-// @version      1.2
-// @description  选中jira号，按键盘 w 键即可
+// @version      1.3
+// @description  选中jira号，按键盘 w 键即可, 按键盘 Q 键即可复制到剪切板 格式：【code title】
 // @author       You
 // @include        https://git.carzone365.com/*
 // @include        https://xcz.yuque.com/*
@@ -10,6 +10,7 @@
 // @require https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js
 // @require https://cdn.bootcss.com/layer/2.3/layer.js
 // @grant        GM_xmlhttpRequest
+// @grant        GM_setClipboard
 // ==/UserScript==
 
 (function() {
@@ -23,7 +24,7 @@
     }
 
     includeLinkStyle("https://cdn.bootcss.com/layer/2.3/skin/layer.css");
-    function getTitle(jiraCode){
+    function getTitle(jiraCode, copyTag){
         GM_xmlhttpRequest({
             method: 'get',
             url: 'http://jira.carzone365.com/browse/'+jiraCode,
@@ -34,8 +35,11 @@
             onload: function(responsedetails) {
                 var title = $(responsedetails.response).find('#summary-val')[0].innerText
                 layer.msg(title)
-                // alert(title)
+                if(copyTag){
+                    const message = `${jiraCode} ${title}`
+                    GM_setClipboard(message, { type: 'text', mimetype: 'text/plain'})
                 }
+            }
         });
     }
     $(document).on('keydown', function(event){
@@ -43,6 +47,9 @@
         if(selectedJiraCode.indexOf('-')<0) return
         if(event.keyCode==87){
             getTitle(selectedJiraCode.trim())
+        }
+        if(event.keyCode==81){
+            getTitle(selectedJiraCode.trim(), true)
         }
     })
 })();
