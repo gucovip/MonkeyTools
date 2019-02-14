@@ -3,10 +3,10 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.4
 // @description  try to take over the world!
-// @author       You
+// @author       Cong
 // @match        http://jira.carzone365.com/browse/*
-// @include     http://jira.carzone365.com/secure/RapidBoard.jspa*
-// @require https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js
+// @include      http://jira.carzone365.com/secure/RapidBoard.jspa*
+// @require      https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js
 // @grant        GM_setClipboard
 // ==/UserScript==
 
