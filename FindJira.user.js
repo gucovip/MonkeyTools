@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         FindJira
 // @namespace    http://tampermonkey.net/
-// @version      1.3
+// @version      1.4
 // @description  选中jira号，按键盘 w 键即可, 按键盘 Q 键即可复制到剪切板 格式：【code title】
-// @author       You
-// @include        https://git.carzone365.com/*
-// @include        https://xcz.yuque.com/*
-// @include        http://jira.carzone365.com/*
-// @require https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js
-// @require https://cdn.bootcss.com/layer/2.3/layer.js
+// @author       Cong
+// @include      https://git.carzone365.com/*
+// @include      https://xcz.yuque.com/*
+// @include      http://jira.carzone365.com/*
+// @require      https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js
+// @require      https://cdn.bootcss.com/layer/2.3/layer.js
 // @grant        GM_xmlhttpRequest
 // @grant        GM_setClipboard
 // ==/UserScript==
