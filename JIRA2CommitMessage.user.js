@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         JIRA2CommitMessage
 // @namespace    http://tampermonkey.net/
-// @version      1.4
+// @version      1.5
 // @description  try to take over the world!
-// @author       Cong
+// @author       Cong, Ziyuan
 // @match        http://jira.carzone365.com/browse/*
 // @include      http://jira.carzone365.com/secure/RapidBoard.jspa*
 // @require      https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js
@@ -13,16 +13,17 @@
 (function() {
     'use strict';
 
-    $(document).on('click', '.aui-page-header-image', function(){
-        const jiraCode = location.pathname.split('/')[2]
-        const jiraTitle = $('#summary-val').text()
-        const message = `${jiraCode} ${jiraTitle}`
-        GM_setClipboard(message, { type: 'text', mimetype: 'text/plain'})
+    $(document.querySelector('#stalker > div > div > div > div > div.toolbar-split.toolbar-split-left')).append('<ul id="jira-helper" class="toolbar-group pluggable-ops"></ul>')
+    $(document.querySelector('#jira-helper')).append('<li class="toolbar-item"><a id="copy-simple" class="toolbar-trigger issueaction-workflow-transition">复制(简单)</a></li>')
+    $(document.querySelector('#jira-helper')).append('<li class="toolbar-item"><a id="copy-detailed" class="toolbar-trigger issueaction-workflow-transition">复制(详细)</a></li>')
+
+    $('#copy-simple').on('click', function(){
+        const jiraCode = $('.issue-link').text()
+        GM_setClipboard(jiraCode, { type: 'text', mimetype: 'text/plain'})
     })
-    $(document).on('click', '.ghx-project-avatar', function() {
-        const jiraCode = $('.ghx-group').find('.ghx-detail-list')[0].innerText
-        const jiraTitle = $('.ghx-group').find('.ghx-detail-list')[1].innerText
-        const message = `${jiraCode} ${jiraTitle}`
-        GM_setClipboard(message, { type: 'text', mimetype: 'text/plain'})
+    $('#copy-detailed').on('click', function(){
+        const jiraCode = $('.issue-link').text()
+        const jiraTitle = $('#summary-val').text()
+        GM_setClipboard(`${jiraCode} ${jiraTitle}`, { type: 'text', mimetype: 'text/plain'})
     })
 })();
