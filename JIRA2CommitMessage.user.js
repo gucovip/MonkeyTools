@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JIRA2CommitMessage
 // @namespace    http://tampermonkey.net/
-// @version      1.5
+// @version      1.6
 // @description  try to take over the world!
 // @author       Cong, Ziyuan
 // @match        http://jira.carzone365.com/browse/*
@@ -18,11 +18,11 @@
     $(document.querySelector('#jira-helper')).append('<li class="toolbar-item"><a id="copy-detailed" class="toolbar-trigger issueaction-workflow-transition">复制(详细)</a></li>')
 
     $('#copy-simple').on('click', function(){
-        const jiraCode = $('.issue-link').text()
+        const jiraCode = $('.aui-nav.aui-nav-breadcrumbs').children(':last-child').text()
         GM_setClipboard(jiraCode, { type: 'text', mimetype: 'text/plain'})
     })
     $('#copy-detailed').on('click', function(){
-        const jiraCode = $('.issue-link').text()
+        const jiraCode = $('.aui-nav.aui-nav-breadcrumbs').children(':last-child').text()
         const jiraTitle = $('#summary-val').text()
         GM_setClipboard(`${jiraCode} ${jiraTitle}`, { type: 'text', mimetype: 'text/plain'})
     })
